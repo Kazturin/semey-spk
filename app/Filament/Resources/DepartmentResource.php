@@ -19,6 +19,14 @@ class DepartmentResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?int $navigationSort = 5;
+
+    protected static ?string $navigationLabel = 'Отделы';
+
+    protected static ?string $modelLabel = 'Отделы';
+
+    protected static ?string $pluralModelLabel = 'Отделы';
+
     public static function form(Form $form): Form
     {
         return $form

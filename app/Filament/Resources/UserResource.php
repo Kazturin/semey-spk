@@ -36,19 +36,22 @@ class UserResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label('Имя')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
+                    ->label('Электронная почта')
                     ->email()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('password')
+                    ->label('Пароль')
                     ->password()
                     ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
                     ->minLength('8')
                     ->dehydrateStateUsing(fn($state)=>bcrypt($state)),    
                 Forms\Components\CheckboxList::make('roles')
-                    ->label(__('Roles'))
+                    ->label('Роли')
                     ->columns(3)
                     ->relationship(
                         'roles',
@@ -64,12 +67,13 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label('Имя')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->label('Электронная почта')
                     ->searchable(),
                 Tables\Columns\TagsColumn::make('roles.name')
-                    ->label(__('Roles'))
-                    ->limit(2),
+                    ->label('Роли'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
