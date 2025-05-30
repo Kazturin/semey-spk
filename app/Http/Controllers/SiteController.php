@@ -19,12 +19,22 @@ class SiteController extends Controller
             ->where('active', true)
             ->first();
             
-        $news = PageList::query()
+            if($news_page){
+                $news = PageList::query()
             ->where('active', true)
             ->where('page_id',$news_page->id)
             ->orderBy('date', 'desc')
             ->take(5)
             ->get();
+            $mainNews = $news->first();
+            $sideNews = $news->slice(1, 4);
+            }
+        else {
+            $mainNews = NULL;
+            $sideNews = NULL;
+        }
+            
+        
         
         $partners = Cache::remember('partners', now()->addDays(1), function () {
             return Partner::query()->where('active', true)->get();
@@ -38,8 +48,8 @@ class SiteController extends Controller
         //    dd($info);
 
         return view('site.index', [
-            'mainNews' => $news->first(),
-            'sideNews' => $news->slice(1, 4),
+            'mainNews' => $mainNews,
+            'sideNews' => $sideNews,
             'news_page' => $news_page,
             'info' => $info,
             'banner' => $banner,

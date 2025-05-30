@@ -8,6 +8,7 @@
 
 <section>
 <div class="container mx-auto pt-14 mb-10">
+    @if($news_page)
     <div>
    <div x-data="{ shown: false }"
          x-intersect="shown = true"
@@ -58,6 +59,7 @@
             </div>
     </div>
 </div>
+@endif
 </div>
 </section>
 <section class="my-20">
