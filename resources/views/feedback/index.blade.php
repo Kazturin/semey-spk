@@ -60,7 +60,7 @@
                 <x-input-error class="mt-2" :messages="$errors->get('message')" />
             </div>
             <div class="mt-8">
-                <x-button-primary class="mx-auto">{{ __('form.send') }}</x-button-primary>
+                <x-button-primary class="mx-auto cursor-pointer">{{ __('form.send') }}</x-button-primary>
             </div>
             </form>
         </div>
