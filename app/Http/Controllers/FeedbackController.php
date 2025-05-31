@@ -25,7 +25,9 @@ class FeedbackController extends Controller
 
         $feedback = Feedback::create($data);
 
-        Mail::to($feedback->email)->send(new \App\Mail\Feedback($feedback));
+        if($feedback->department){
+            Mail::to($feedback->department->email)->send(new \App\Mail\Feedback($feedback));
+        }
 
         return redirect()->route('feedback',['locale'=>app()->getLocale()])->with('success', 'Хабарлама жіберілді');
     }
