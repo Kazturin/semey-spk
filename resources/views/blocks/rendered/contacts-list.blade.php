@@ -4,7 +4,7 @@
         <img src="/storage/{{ $item['icon'] }}" class="w-7 h-7" alt="icon">
         <div>
             <p class="text-sm text-gray-300">{{ $item['title'] }}:</p>
-            <a href="tel:+77172672037" class="topfoot-call">{{ $item['value'] }}</a>
+            <span class="topfoot-call">{{ $item['value'] }}</span>
         </div>
     </div>
     @endforeach

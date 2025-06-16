@@ -42,7 +42,7 @@ class Menu extends Model
             return $this->{'link_' . app()->getLocale()};
         } elseif ($this->link) {
             return route($this->link, ['locale' => app()->getLocale()]);
-        } elseif ($this->is_request_page) {
+        } elseif ($this->is_request_page && $this->page) {
             return route('request', ['locale' => app()->getLocale(), 'page' => $this->page]);
         } else {
             return route('page', ['locale' => app()->getLocale(), 'page' => $this->page]);
