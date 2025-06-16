@@ -3,7 +3,7 @@
        @foreach ($slides as $slide)
        <div class="swiper-slide h-full max-h-screen overflow-hidden">
             <div class="relative h-full">
-                <img src="/storage/{{ $slide['banner'] }}" class="absolute inset-0 object-cover object-left h-full w-full lg:h-auto lg:object-right md:object-center" alt="">
+                <img src="/storage/{{ $slide['banner'] }}" class="absolute inset-0 object-cover object-left h-full w-full lg:object-right md:object-center" alt="">
                 <div class="relative h-full z-20">
                    
          <div class="container mx-auto h-full">

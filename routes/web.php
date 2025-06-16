@@ -3,11 +3,13 @@
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SiteController;
 use App\Http\Middleware\Localization;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\Routing\RequestContext;
 
 Route::post('language', function (Request $request) {
     \Illuminate\Support\Facades\App::setLocale($request->locale);
@@ -36,6 +38,7 @@ Route::group([
    Route::get('/page/{page:slug?}',[PageController::class,'index'])->name('page');
    Route::get('/list/{pageList:slug}',[PageController::class,'listItem'])->name('list.item');
    Route::get('/feedback',[FeedbackController::class,'index'])->name('feedback');
+   Route::get('/request/{page:slug}',[RequestController::class,'index'])->name('request');
 //    Route::get('/files/{pageFile}',FileController::class)->name('files');
 //    Route::get('/search', SearchController::class)->name('search');
 
@@ -45,6 +48,7 @@ Route::group([
 
 Route::get('/test', [SiteController::class,'test'] );
 Route::post('/feedback/store',[FeedbackController::class,'store'])->name('feedback.store');
+Route::post('/request/store',[RequestController::class,'store'])->name('request.store');
 // Route::get('/', function () {
 //     // echo 'Текущая память до вида: ' . (memory_get_usage() / 1024 / 1024) . ' MB<br>';
 //     // $view = view('welcome');

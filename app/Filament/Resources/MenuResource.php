@@ -67,7 +67,10 @@ class MenuResource extends Resource
                     ->searchable(),
                 Forms\Components\Toggle::make('active')
                     ->label('Активно')
-                    ->default(1)                        
+                    ->default(1),
+                Forms\Components\Toggle::make('is_request_page')
+                    ->label('Это страница заявки')
+                    ->default(0),                          
                 ])->columnSpan(8),
                 
 

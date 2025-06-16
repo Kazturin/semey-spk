@@ -83,6 +83,11 @@
     }
   }
 }
+@media (min-width: 64rem) {
+    .container {
+        max-width: 76rem !important;
+    }
+}
 md:overflow-x-unset{
   overflow-x: unset;
 }
