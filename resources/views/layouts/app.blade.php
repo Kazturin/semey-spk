@@ -72,11 +72,11 @@
                                 </svg>
                             </button>
                         </div>
-                        <div class="hidden lg:flex space-x-1 items-center text-base uppercase font-sf">
+                        <div class="hidden lg:flex space-x-1 items-center text-sm uppercase font-sf">
                         @foreach($menu as $item)
                         @if(count($item->children)>0)
                             <div class="relative">
-                                <button @mouseenter="openMenu === {{ $item->id }} ? openMenu = null : openMenu = {{ $item->id }}" @mouseleave="openMenu = null" type="button" class="flex items-center justify-between cursor-pointer w-full border-b uppercase border-white text-left px-4" aria-expanded="false">
+                                <button @mouseenter="openMenu === {{ $item->id }} ? openMenu = null : openMenu = {{ $item->id }}" @mouseleave="openMenu = null" type="button" class="flex items-center justify-between cursor-pointer w-full border-b uppercase border-white text-left text-sm px-4" aria-expanded="false">
                                 {{ $item->{'title_'.app()->getLocale()} }}
                                     <svg class="h-5 w-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"></path>
@@ -93,7 +93,7 @@
                                             @if(count($child_item->children)>0)
                                             <li class="mb-2" x-data="{ expanded: false }">
                                                 <button id="faqs-title-{{$child_item->id}}" type="button"
-                                                    class="flex items-center justify-between w-full hover:bg-secondary cursor-pointer hover:text-white uppercase hover:rounded-3xl px-4 py-2 text-left"
+                                                    class="flex items-center justify-between w-full hover:bg-secondary cursor-pointer hover:text-white uppercase hover:rounded-3xl text-sm px-4 py-2 text-left"
                                                     @click="expanded = !expanded" :aria-expanded="expanded"
                                                     aria-controls="faqs-text-{{$child_item->id}}">
                                                     <span>{{ $child_item->{'title_'.app()->getLocale()} }}</span>
@@ -111,7 +111,7 @@
                                                             @if(count($child->children)>0)
                                             <li class="mb-2" x-data="{ expanded: false }">
                                                 <button id="faqs-title-{{$child_item->id}}" type="button"
-                                                    class="flex items-center justify-between w-full hover:bg-secondary hover:text-white hover:rounded-3xl text-left mt-2 px-4 py-2"
+                                                    class="flex items-center justify-between w-full hover:bg-secondary hover:text-white hover:rounded-3xl text-sm text-left mt-2 px-4 py-2"
                                                     @click="expanded = !expanded" :aria-expanded="expanded"
                                                     aria-controls="faqs-text-{{$child->id}}">
                                                     <span>{{ $child->{'title_'.app()->getLocale()} }}</span>
@@ -130,7 +130,7 @@
                                                                 <a
                                                                     href="{{ $last_child->getUrl() }}"
                                                                     {{$last_child->is_external_link ? 'target="_blank"' : ''}}
-                                                                    class="block hover:bg-secondary hover:text-white hover:rounded-3xl px-4 py-2">
+                                                                    class="block hover:bg-secondary hover:text-white hover:rounded-3xl text-sm px-4 py-2">
                                                                     {{ $last_child->{'title_'.app()->getLocale()} }}
                                                                 </a>
                                                             </li>
@@ -144,7 +144,7 @@
                                                                 <a
                                                                     href="{{ $child->getUrl() }}"
                                                                     {{$child->is_external_link ? 'target="_blank"' : ''}}
-                                                                    class="block hover:bg-secondary  hover:text-white hover:rounded-3xl px-4 py-2">
+                                                                    class="block hover:bg-secondary  hover:text-white text-sm hover:rounded-3xl px-4 py-2">
                                                                     {{ $child->{'title_'.app()->getLocale()} }}
                                                                 </a>
                                                             </li>
@@ -159,7 +159,7 @@
                                                   <a
                                                     href="{{ $child_item->getUrl() }}"
                                                     {{$child_item->is_external_link ? 'target="_blank"' : ''}}
-                                                    class="block hover:bg-secondary hover:text-white hover:rounded-3xl px-4 py-2">
+                                                    class="block hover:bg-secondary hover:text-white text-sm hover:rounded-3xl px-4 py-2">
                                                     {{ $child_item->{'title_'.app()->getLocale()} }}
                                                   </a>
                                              </li>
