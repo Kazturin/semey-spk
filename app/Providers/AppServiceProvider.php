@@ -7,6 +7,7 @@ use App\Filament\TiptapBlock\ContactsListBlock;
 use App\Filament\TiptapBlock\FullSliderBlock;
 use App\Filament\TiptapBlock\GalleryBlock;
 use App\Filament\TiptapBlock\InfoBlock;
+use App\Filament\TiptapBlock\SocialNetworksBlock;
 use App\Filament\TiptapBlock\TabsBlock;
 use FilamentTiptapEditor\TiptapEditor;
 use Illuminate\Support\Facades\URL;
@@ -36,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
                     InfoBlock::class,
                     FullSliderBlock::class,
                     ContactsListBlock::class,
+                    SocialNetworksBlock::class
                 ]);
         });
     }

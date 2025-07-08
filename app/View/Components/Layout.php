@@ -14,6 +14,7 @@ class Layout extends Component
     public $menu;
     public $contact_center;
     public $contacts_list;
+    public $social_networks;
     /**
      * Create a new component instance.
      */
@@ -30,6 +31,8 @@ class Layout extends Component
             return DB::table('text_widgets')->where('key','contact_center')->where('active', true)->first();
         });
         $this->contacts_list = DB::table('text_widgets')->where('key','contacts_list')->where('active', true)->first();
+        $this->social_networks = DB::table('text_widgets')->where('key','social_networks')->where('active', true)->first();
+     //dd($this->social_networks);
     }
 
     /**
